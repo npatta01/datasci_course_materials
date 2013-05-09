@@ -6,17 +6,19 @@
     <ProjectGuid>7a36bcea-7818-44a1-9ac6-fad7e8f1639e</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>
-    </StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <StartupFile>top_ten.py</StartupFile>
+    <SearchPath>happiest_state</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <InterpreterId>00000000-0000-0000-0000-000000000000</InterpreterId>
-    <InterpreterVersion>
-    </InterpreterVersion>
+    <InterpreterId>2af0f10d-7135-4994-9156-5d01c9c11b7e</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
     <Name>assignment1</Name>
     <RootNamespace>assignment1</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>output.txt  AFINN-111.txt </CommandLineArguments>
+    <InterpreterPath />
+    <InterpreterArguments />
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,12 +29,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="frequency.py" />
     <Compile Include="print.py" />
     <Compile Include="term_sentiment.py" />
+    <Compile Include="happiest_state.py" />
+    <Compile Include="top_ten.py" />
     <Compile Include="tweet_sentiment.py" />
     <Compile Include="twitterstream.py" />
-    <Content Include="AFINN-111.txt" />
+    <Content Include="AFINN-111.txt">
+      <Publish>True</Publish>
+    </Content>
     <Content Include="AFINN-README.txt" />
+    <Content Include="output.txt">
+      <Publish>True</Publish>
+    </Content>
     <Content Include="README.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
