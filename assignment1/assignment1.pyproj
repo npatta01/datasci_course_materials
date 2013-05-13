@@ -6,7 +6,7 @@
     <ProjectGuid>7a36bcea-7818-44a1-9ac6-fad7e8f1639e</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>top_ten.py</StartupFile>
+    <StartupFile>term_sentiment.py</StartupFile>
     <SearchPath>happiest_state</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -15,7 +15,7 @@
     <Name>assignment1</Name>
     <RootNamespace>assignment1</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>output.txt  AFINN-111.txt </CommandLineArguments>
+    <CommandLineArguments>AFINN-111.txt output.txt </CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
     <IsWindowsApplication>False</IsWindowsApplication>
@@ -33,6 +33,7 @@
     <Compile Include="print.py" />
     <Compile Include="term_sentiment.py" />
     <Compile Include="happiest_state.py" />
+    <Compile Include="term_sentiment_min.py" />
     <Compile Include="top_ten.py" />
     <Compile Include="tweet_sentiment.py" />
     <Compile Include="twitterstream.py" />

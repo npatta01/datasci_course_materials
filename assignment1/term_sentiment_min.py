@@ -5,23 +5,15 @@ sentimentDictionary = {}#contains the sentiment
 unknown_words_score={}#unknown word score
 
 def parseSentimentDictionary(sent_file):
-    """ For the given file,save the score of each word"""
     for line in sent_file:
-        term, score  = line.split("\t")  # The file is tab-delimited. "\t" means "tab character"
-        sentimentDictionary[term] = int(score)  # Convert the score to an integer.
+        term, score  = line.split("\t")  
+        sentimentDictionary[term] = int(score)  
 
 def calculateFinalScores():
-    """ For each term, print the final score
-        final_score (t) = total_neg_score(t)/total_neg_count(t) +
-                          total_pos_score(t)/total_pos_count(t)
-    """
     for w in unknown_words_score:
         ob=unknown_words_score[w];
         assert isinstance(ob,UnknownWord)
-        
         final_score=pos_score=neg_score=0.0
-        #to check not dividing by zero
-        #setting the score based on pos and neg
         if(ob.neg_count!=0):
             neg_score=(ob.neg_sum/ob.neg_count)
         if (ob.pos_count!=0):
@@ -39,11 +31,9 @@ def calculateFinalScores():
 def cleanupWord(w):
     w=w.lower();
     if (len(w)==0): return w
-    
     while( len(w)!=0 and ( w[-1]==';' or   w[-1]== ',' or  w[-1]=='.' or w[-1]=='\''  or w[-1]=='\"' or w[-1]=='?')):
         w=w[0:-1]
-
-    while( len(w)!=0 and ( w[0]==';' or   w[0]== ',' or  w[0]=='.' or w[0]=='\'' or w[0]=='\"')):
+    while( len(w)!=0 and ( w[0]==';' or   w[0]== ',' or  w[0]=='.' or w[0]=='\''  or w[0]=='\"')):
         w=w[1:]
     return w
         
@@ -60,17 +50,14 @@ def assignScores(tweet_file):
             total_Score=0.0;
             unknown_words=[];
             for w in words_in_tweet:
-                w=cleanupWord(w)
+                #w=cleanupWord(w)
                 if len(w)!=0: 
                     if(w in sentimentDictionary):
                         total_Score+=sentimentDictionary[w]
                     else:
                         unknown_words.append(w)
 
-            #for each unkown word
             pos_count=neg_count=pos_sum=neg_sum=0
-            
-            #set the pos/neg cout to 1, if tweet was positive or negative
             if total_Score >=0 :
                 pos_count=1;
                 pos_sum=total_Score
@@ -79,9 +66,6 @@ def assignScores(tweet_file):
                 neg_sum=total_Score
 
             for w in unknown_words:#increment the values for unknown words
-               
-                
-                
                 if w in unknown_words_score:#if word was seen in another tweet
                     uw = unknown_words_score[w];
                     assert isinstance(uw,UnknownWord)
@@ -100,9 +84,6 @@ def assignScores(tweet_file):
 
 
 class UnknownWord:
-    """ A struct to represent some infomration
-    for words that were not in the sampl 
-    dictionary file"""
     term=""
     pos_count=neg_count=0
     pos_sum=neg_sum=final_score=0.0

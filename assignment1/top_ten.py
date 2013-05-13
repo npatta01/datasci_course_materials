@@ -3,7 +3,6 @@ import json
 from collections import OrderedDict
 
 frequency = {}
-total_tags=0
 
 def computeFrequency(tweet_file):
     """ For the given file, compute relative frequency for a word"""
@@ -19,8 +18,6 @@ def computeFrequency(tweet_file):
             for t in tags:
                 tag=t["text"].encode('utf-8')
                 frequency[tag]=frequency.get(tag,0)+1
-                total_tags+=1
-                
             
 
 def printTopK(topk=10):
@@ -29,7 +26,7 @@ def printTopK(topk=10):
 
     for (elem,elemvalue) in l.iteritems():
         if (topk!=0):
-            print "%s\t%f" % (elem, elemvalue/total_tags)
+            print "%s\t%f" % (elem, elemvalue)
             topk=topk-1;
     
         
