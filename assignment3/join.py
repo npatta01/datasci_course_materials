@@ -24,8 +24,10 @@ def reducer(key, list_of_values):
         return
     orderlem= list_of_values[0];
     
+    joined_result=[];
     for i in range(1,len(list_of_values)):
-        joined_result=orderlem
+        joined_result=[]
+        joined_result.extend(orderlem);
         joined_result.extend(list_of_values[i]);
         mr.emit((joined_result))
     

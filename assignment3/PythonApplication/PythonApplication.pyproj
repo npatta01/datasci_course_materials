@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7ee132d5-eabb-4983-8512-f7ab29a6337b</ProjectGuid>
     <ProjectHome>..\</ProjectHome>
-    <StartupFile>join.py</StartupFile>
+    <StartupFile>multiply.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -15,9 +15,10 @@
     <Name>PythonApplication</Name>
     <RootNamespace>PythonApplication</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>data\records.json</CommandLineArguments>
+    <CommandLineArguments>matrix.json</CommandLineArguments>
     <InterpreterPath />
     <InterpreterArguments />
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,7 @@
     <Compile Include="inverted_index.py" />
     <Compile Include="join.py" />
     <Compile Include="MapReduce.py" />
+    <Compile Include="multiply.py" />
     <Compile Include="wordcount.py" />
   </ItemGroup>
   <ItemGroup>
